@@ -171,8 +171,13 @@ $(document).ready(function(){
         displayQ();  
     });
     
+    $("#seeResults").on("click", function(){
+        displayResults();
+    })
+    
     function displayResults() {
-        $("#question").html("")
+        $("#question").html("Are you a Pokemon Master?");
+        $(".choicesBlock").html("Correct Answers: " + numCorrect + "<br>" + "Incorrect Answers: " + numIncorrect + "<br>" + "Unanswered: " + unanswered);
     }
     
 });
