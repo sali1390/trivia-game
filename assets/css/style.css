@@ -16,7 +16,7 @@ body {
 }
 
 #heading img{
-    margin: 20px 0 10px 0;
+    margin: 20px 0 10px; 0;
     width: 420px;
 }
 
@@ -48,4 +48,23 @@ body {
     font-weight: 600;
     color: #336ab2;
     text-align: center;
+}
+
+#question {
+    padding: 10px 0;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: #336ab2;
+    text-align: center;
+}
+
+#nextQ, #seeResults, #playAgain{
+    margin: 10px 0;
+    width: 250px;
+    font-size: 20px;
+    padding: 10px;
+    color: #fff;
+    background: #336ab2;
+    font-family: 'Open Sans', sans-serif;
 }
