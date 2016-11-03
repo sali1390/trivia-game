@@ -2,56 +2,65 @@ $(document).ready(function(){
     $("#nextQ").hide();
     $(".choices").hide();
     $("#seeResults").hide();
+    $("#playAgain").hide();
     
     //All questions here
     var questions = [
         [
-            "Who is Harry Potter's godfather?",
+            "../assets/images/flareonHidden.png",
             ["Gilderoy Lockhart", "Sirius Black", "Dobby", "A Dementor"],
             1,
-            "gif"
+            "gif",
+            "../assets/images/flareon.png"
         ],
         [
-            "question 2",
+            "../assets/images/meowthHidden.png",
             ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
             2,
-            "gif"
+            "gif",
+            "../assets/images/meowth.png"
         ],
         [
-            "question 3",
+            "../assets/images/psyduckHidden.png",
             ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
             3,
-            "gif"
+            "gif",
+            "../assets/images/psyduck.png"
         ],
         [
-            "question 4",
+            "../assets/images/snorlaxHidden.png",
             ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
             0,
-            "gif"
+            "gif",
+            "../assets/images/snorlax.png"
         ],
         [
-            "question 5",
+            "../assets/images/mewtwoHidden.png",
             ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
             2,
-            "gif"
+            "gif",
+            "../assets/images/mewtwo.png"
         ],
         [
-            "question 6",
+            "../assets/images/ninetalesHidden.png",
             ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
             0,
-            "gif"
+            "gif",
+            "../assets/images/ninetales.png"
         ],
         [
-            "question 7",
+            "../assets/images/pidgeyHidden.png",
             ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
             3,
-            "gif"
+            "gif",
+            "../assets/images/pidgey.png"
         ],
         [
-            "question 8",
+            "../assets/images/pickachuHidden.png",
             ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
             1,
-            "gif"
+            "gif",
+            "../assets/images/pickachu.png"
         ], 
     ];
     
@@ -96,7 +105,7 @@ $(document).ready(function(){
     //Function that passes the index of the question and prints the question and choices to the page
     function printQuestion(t) {
         $(".choices").show();
-        $("#question").html(questions[t][0]);
+        $("#question").html('<img src="' + questions[t][0] + '"/>');
         $("#choice1").html(questions[t][1][0]);
         $("#choice2").html(questions[t][1][1]);
         $("#choice3").html(questions[t][1][2]);
@@ -151,7 +160,7 @@ $(document).ready(function(){
     
     //What to do if answer is correct
     function answerIsCorrect() {
-        $("#question").html("Correct!");
+        $("#question").html('<img src="' + questions[qNum][4] + '"/>' + "<br>" + "Correct!");
         displayGif(qNum);
         qNum++;
         console.log("After check: " + qNum);
@@ -159,7 +168,7 @@ $(document).ready(function(){
     
     //What to do if answer is incorrect
     function answerIsIncorrect() {
-        $("#question").html("Nope! The correct answer is: " + correctAnswer);
+        $("#question").html('<img src="' + questions[qNum][4] + '"/>' + "<br>" + "Nope! The correct answer is: " + correctAnswer);
         displayGif(qNum);
         qNum++;
         console.log("After check: " + qNum);
@@ -178,6 +187,8 @@ $(document).ready(function(){
     function displayResults() {
         $("#question").html("Are you a Pokemon Master?");
         $(".choicesBlock").html("Correct Answers: " + numCorrect + "<br>" + "Incorrect Answers: " + numIncorrect + "<br>" + "Unanswered: " + unanswered);
+        $("#seeResults").hide();
+        $("#playAgain").show();
     }
     
 });
