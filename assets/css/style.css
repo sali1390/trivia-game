@@ -1,13 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+body {
+    background-image: url('../images/bg.jpg');
+}
+
+.bodySection {
+    background: rgba(255, 255, 255, 0.9);
+    margin-top: 20px;
+    height: 95vh;
+}
+
 #heading h1{
     border: 1px solid red;
     text-align: center;
 }
 
+#heading img{
+    margin: 20px 0 10px 0;
+    width: 420px;
+}
+
+
 #startButton {
-    border: 1px solid green;
-    margin: 0 auto;
+    margin-top: 50px;
+    width: 250px;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    border: none;
+    background-image: url('../images/gradient.png');
 }
 
 .choices {
-    margin-bottom: 100px;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    border: none;
+    background: #00d9b9;
+    margin-top: 10px;
+    padding: 10px;
+
+}
+
+#timer {
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: #336ab2;
+    text-align: center;
 }
