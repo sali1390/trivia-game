@@ -1,10 +1,12 @@
 $(document).ready(function(){
     $("#nextQ").hide();
     $(".choices").hide();
+    $("#seeResults").hide();
     
+    //All questions here
     var questions = [
-         [
-            "Who is Harry Potter's godfather?", 
+        [
+            "Who is Harry Potter's godfather?",
             ["Gilderoy Lockhart", "Sirius Black", "Dobby", "A Dementor"],
             1,
             "gif"
@@ -53,9 +55,7 @@ $(document).ready(function(){
         ], 
     ];
     
-    console.log(questions);
-    
-    //Define variables for question, user's choice, and time
+    //Define variables
     var currentQuestion;
     var userChoice;
     var currentTime;
@@ -66,14 +66,15 @@ $(document).ready(function(){
     var unanswered = 0;
     var interval;
     
-    //function to start timer and run in intervalls
+    //function to start timer and run in intervals based on count function
     function startTimer() {
         interval = setInterval(count, 1000); 
-    }
+    };
     
+    //function to stop timer
     function stopTimer() {
         clearInterval(interval);
-    }
+    };
     
     //function to count the timer
     function count() {
@@ -84,14 +85,16 @@ $(document).ready(function(){
             unanswered++;
             $("#question").html("Times Up! The correct answer is: " + correctAnswer);
         }
-    }
+    };
     
+    //Starts game
     $("#startButton").on("click", function(){
         startTimer();
-        startGame();
+        displayQ();
     });
     
-    function printQuestion(t){
+    //Function that passes the index of the question and prints the question and choices to the page
+    function printQuestion(t) {
         $(".choices").show();
         $("#question").html(questions[t][0]);
         $("#choice1").html(questions[t][1][0]);
@@ -100,60 +103,76 @@ $(document).ready(function(){
         $("#choice4").html(questions[t][1][3]);
         var correctAnswerIndex = [questions[t][2]];
         correctAnswer = questions[t][1][correctAnswerIndex];
-        
-        console.log(correctAnswerIndex);
-    }
-    function startGame() { 
+    };
+    
+    //Displays the respective gif
+    function displayGif(g) {
+        $("#gif").html(questions[g][2]);
+    };
+    
+    //Displays the next question and all revelent info such as time
+    function displayQ() { 
         currentTime = 30;
         printQuestion(qNum);
         $("#startButton").hide();
         console.log("correct " + correctAnswer);
-        qNum++;
-    }
+        console.log(qNum);
+        $("#gif").hide();
+    };
     
+    //Click handler that captures the User's input
     $(".choices").on("click", function(){
         userChoice = $(this).html();
         console.log("user " + userChoice);
         stopTimer();
         checkAnswer();
-        
-        console.log(stopTimer);
-    })
+    });
 
+    //Checks if the answer is correct or incorrect and increments accordingly
     function checkAnswer() {
         if (userChoice == correctAnswer) {
             answerIsCorrect();
             numCorrect++;
             stopTimer();
+            $("#gif").show();
             $("#nextQ").show();
         } else {
             answerIsIncorrect();
             numIncorrect++;
             stopTimer();
+            $("#gif").show();
             $("#nextQ").show();
         }
-    }
-    
-    function answerIsCorrect() {
-        $("#question").html("Correct!");
-        $("#choices").html("gif");
-    }
-    
-    function answerIsIncorrect() {
-        $("#question").html("Nope! The correct answer is: " + correctAnswer);
-        $("#choices").html("gif");
-    }
-    
-    $("#nextQ").on("click", function(){
-        startTimer();
-        startGame();
-        
         if (qNum >= 8) {
-            $(".choices").hide();
+            $("#seeResults").show();
             $("#nextQ").hide();
         }
-        
-        console.log()
+    };
+    
+    //What to do if answer is correct
+    function answerIsCorrect() {
+        $("#question").html("Correct!");
+        displayGif(qNum);
+        qNum++;
+        console.log("After check: " + qNum);
+    };
+    
+    //What to do if answer is incorrect
+    function answerIsIncorrect() {
+        $("#question").html("Nope! The correct answer is: " + correctAnswer);
+        displayGif(qNum);
+        qNum++;
+        console.log("After check: " + qNum);
+    };
+    
+    //Click handler to procees to next question
+    $("#nextQ").on("click", function() {
+        startTimer();
+        displayQ();  
     });
+    
+    function displayResults() {
+        $("#question").html("")
+    }
     
 });
