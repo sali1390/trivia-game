@@ -4,60 +4,65 @@ $(document).ready(function(){
     $("#seeResults").hide();
     $("#playAgain").hide();
     
+    $('.themeMusic').prop("volume", 0.3);
+    
+    var whosThatPokemon = document.createElement('audio');
+	   whosThatPokemon.setAttribute('src', '../assets/sfx/whosThatPokemon.wav');
+    
     //All questions here
     var questions = [
         [
             "../assets/images/flareonHidden.png",
-            ["Gilderoy Lockhart", "Sirius Black", "Dobby", "A Dementor"],
+            ["Diglett", "Flareon", "Squirtle", "Eevee"],
             1,
             "gif",
             "../assets/images/flareon.png"
         ],
         [
             "../assets/images/meowthHidden.png",
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+            ["Venonat", "Exeggcute", "Meowth", "Starmie"],
             2,
             "gif",
             "../assets/images/meowth.png"
         ],
         [
             "../assets/images/psyduckHidden.png",
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+            ["Ekans", "Cubone", "Rattata", "Psyduck"],
             3,
             "gif",
             "../assets/images/psyduck.png"
         ],
         [
             "../assets/images/snorlaxHidden.png",
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+            ["Snorlax", "Haunter", "Mr.Mime", "Weedle"],
             0,
             "gif",
             "../assets/images/snorlax.png"
         ],
         [
             "../assets/images/mewtwoHidden.png",
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+            ["Mew", "Tangela", "Mewtwo", "Psyduck"],
             2,
             "gif",
             "../assets/images/mewtwo.png"
         ],
         [
             "../assets/images/ninetalesHidden.png",
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+            ["Ninetales", "Nidoran", "Jigglypuff", "Poliwag"],
             0,
             "gif",
             "../assets/images/ninetales.png"
         ],
         [
             "../assets/images/pidgeyHidden.png",
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+            ["Slowpoke", "Machop", "Growlithe", "Pidgey"],
             3,
             "gif",
             "../assets/images/pidgey.png"
         ],
         [
             "../assets/images/pickachuHidden.png",
-            ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+            ["Seel", "Pickachu", "Drowzee", "Ponyta"],
             1,
             "gif",
             "../assets/images/pickachu.png"
@@ -127,6 +132,7 @@ $(document).ready(function(){
         console.log("correct " + correctAnswer);
         console.log(qNum);
         $("#gif").hide();
+        whosThatPokemon.play();
     };
     
     //Click handler that captures the User's input
@@ -184,10 +190,16 @@ $(document).ready(function(){
         displayResults();
     })
     
+    $("#playAgain").on("click", function() {
+        window.location.reload();
+    })
+    
     function displayResults() {
-        $("#question").html("Are you a Pokemon Master?");
+        $("#final").html("Are you a Pokemon Master?");
         $(".choicesBlock").html("Correct Answers: " + numCorrect + "<br>" + "Incorrect Answers: " + numIncorrect + "<br>" + "Unanswered: " + unanswered);
+        $("#question").html('<img src="../assets/images/pokemonMaster.gif">')
         $("#seeResults").hide();
+        $("#gif").hide();
         $("#playAgain").show();
     }
     

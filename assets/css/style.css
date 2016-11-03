@@ -39,7 +39,6 @@ body {
     background: #00d9b9;
     margin-top: 10px;
     padding: 10px;
-
 }
 
 #timer {
@@ -50,8 +49,17 @@ body {
     text-align: center;
 }
 
-#question {
+#final {
     padding: 10px 0;
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: #336ab2;
+    text-align: center;
+}
+
+#question, .choicesBlock {
+    padding: 5px 0;
     font-size: 20px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -67,4 +75,10 @@ body {
     color: #fff;
     background: #336ab2;
     font-family: 'Open Sans', sans-serif;
+}
+
+.soundBtn {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
 }
