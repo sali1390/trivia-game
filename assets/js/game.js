@@ -97,7 +97,8 @@ $(document).ready(function(){
         if (currentTime <= -1) {
             stopTimer();
             unanswered++;
-            $("#question").html("Times Up! The correct answer is: " + correctAnswer);
+            $("#question").html('<img src="' + questions[qNum][4] + '"/>' + '<br>' + "Times Up! The correct answer is: " + correctAnswer);
+            $("#nextQ").show();
         }
     };
     
