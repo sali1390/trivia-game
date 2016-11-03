@@ -149,13 +149,13 @@ $(document).ready(function(){
             answerIsCorrect();
             numCorrect++;
             stopTimer();
-            $("#gif").show();
+//            $("#gif").show();
             $("#nextQ").show();
         } else {
             answerIsIncorrect();
             numIncorrect++;
             stopTimer();
-            $("#gif").show();
+//            $("#gif").show();
             $("#nextQ").show();
         }
         if (qNum >= 8) {
