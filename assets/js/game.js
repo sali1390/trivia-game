@@ -61,20 +61,33 @@ $(document).ready(function(){
     var currentTime;
     var correctAnswer;
     var qNum = 0;
+    var numCorrect = 0;
+    var numIncorrect = 0;
+    var unanswered = 0;
+    var interval;
     
     //function to start timer and run in intervalls
     function startTimer() {
-        setInterval(count, 1000); 
+        interval = setInterval(count, 1000); 
+    }
+    
+    function stopTimer() {
+        clearInterval(interval);
     }
     
     //function to count the timer
     function count() {
         $("#timer").html("Time Remaining: " + currentTime);
         currentTime--;
+        if (currentTime <= -1) {
+            stopTimer();
+            unanswered++;
+            $("#question").html("Times Up! The correct answer is: " + correctAnswer);
+        }
     }
     
     $("#startButton").on("click", function(){
-        setInterval(count, 1000);
+        startTimer();
         startGame();
     });
     
@@ -101,18 +114,22 @@ $(document).ready(function(){
     $(".choices").on("click", function(){
         userChoice = $(this).html();
         console.log("user " + userChoice);
-        clearInterval(count);
+        stopTimer();
         checkAnswer();
+        
+        console.log(stopTimer);
     })
-    
-    if ()
-    
+
     function checkAnswer() {
         if (userChoice == correctAnswer) {
             answerIsCorrect();
+            numCorrect++;
+            stopTimer();
             $("#nextQ").show();
         } else {
             answerIsIncorrect();
+            numIncorrect++;
+            stopTimer();
             $("#nextQ").show();
         }
     }
@@ -123,15 +140,20 @@ $(document).ready(function(){
     }
     
     function answerIsIncorrect() {
-        $("#question").html("Nope!");
-        $("<div>").attr("class", "answerText").html("The correct answer is: " + correctAnswer);
+        $("#question").html("Nope! The correct answer is: " + correctAnswer);
         $("#choices").html("gif");
     }
     
     $("#nextQ").on("click", function(){
-        currentTime = 30;
-        printQuestion(qNum);
-        qNum++;
+        startTimer();
+        startGame();
+        
+        if (qNum >= 8) {
+            $(".choices").hide();
+            $("#nextQ").hide();
+        }
+        
+        console.log()
     });
     
 });
