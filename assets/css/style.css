@@ -67,6 +67,10 @@ body {
     text-align: center;
 }
 
+#question img {
+    width: 350px;
+}
+
 #nextQ, #seeResults, #playAgain{
     margin: 10px 0;
     width: 250px;

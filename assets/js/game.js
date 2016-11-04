@@ -3,6 +3,7 @@ $(document).ready(function(){
     $(".choices").hide();
     $("#seeResults").hide();
     $("#playAgain").hide();
+    $("#final").hide();
     
     $('.themeMusic').prop("volume", 0.3);
     
@@ -12,60 +13,60 @@ $(document).ready(function(){
     //All questions here
     var questions = [
         [
-            "../assets/images/flareonHidden.png",
+            "assets/images/flareonHidden.png",
             ["Diglett", "Flareon", "Squirtle", "Eevee"],
             1,
             "gif",
-            "../assets/images/flareon.png"
+            "assets/images/flareon.png"
         ],
         [
-            "../assets/images/meowthHidden.png",
+            "assets/images/meowthHidden.png",
             ["Venonat", "Exeggcute", "Meowth", "Starmie"],
             2,
             "gif",
-            "../assets/images/meowth.png"
+            "assets/images/meowth.png"
         ],
         [
-            "../assets/images/psyduckHidden.png",
+            "assets/images/psyduckHidden.png",
             ["Ekans", "Cubone", "Rattata", "Psyduck"],
             3,
             "gif",
-            "../assets/images/psyduck.png"
+            "assets/images/psyduck.png"
         ],
         [
-            "../assets/images/snorlaxHidden.png",
+            "assets/images/snorlaxHidden.png",
             ["Snorlax", "Haunter", "Mr.Mime", "Weedle"],
             0,
             "gif",
-            "../assets/images/snorlax.png"
+            "assets/images/snorlax.png"
         ],
         [
-            "../assets/images/mewtwoHidden.png",
+            "assets/images/mewtwoHidden.png",
             ["Mew", "Tangela", "Mewtwo", "Psyduck"],
             2,
             "gif",
-            "../assets/images/mewtwo.png"
+            "assets/images/mewtwo.png"
         ],
         [
-            "../assets/images/ninetalesHidden.png",
+            "assets/images/ninetalesHidden.png",
             ["Ninetales", "Nidoran", "Jigglypuff", "Poliwag"],
             0,
             "gif",
-            "../assets/images/ninetales.png"
+            "assets/images/ninetales.png"
         ],
         [
-            "../assets/images/pidgeyHidden.png",
+            "assets/images/pidgeyHidden.png",
             ["Slowpoke", "Machop", "Growlithe", "Pidgey"],
             3,
             "gif",
-            "../assets/images/pidgey.png"
+            "assets/images/pidgey.png"
         ],
         [
-            "../assets/images/pickachuHidden.png",
+            "assets/images/pickachuHidden.png",
             ["Seel", "Pickachu", "Drowzee", "Ponyta"],
             1,
             "gif",
-            "../assets/images/pickachu.png"
+            "assets/images/pickachu.png"
         ], 
     ];
     
@@ -133,6 +134,7 @@ $(document).ready(function(){
         console.log("correct " + correctAnswer);
         console.log(qNum);
         $("#gif").hide();
+        $("#nextQ").hide();
         whosThatPokemon.play();
     };
     
